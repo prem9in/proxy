@@ -1,0 +1,11 @@
+###
+wireup Specific
+###
+
+out/
+bin/
+node_modules/
+.idea/
+.vscode/
+app/bin/
+app/fonts/

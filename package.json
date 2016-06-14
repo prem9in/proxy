@@ -1,0 +1,17 @@
+{
+  "name": "cproxy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "proxy server for cross domain http GET ajax calls.",
+  "scripts": {
+    "start": "node server"
+  },
+  "author": {
+    "name": "prem9in",
+    "email": "v.premp@gmail.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "~0.10.0 || ~4.2.0"
+  }
+}
