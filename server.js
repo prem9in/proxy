@@ -15,7 +15,7 @@ var getParameterByName =  function(name, url) {
             results = regex.exec(url);
         if (!results) return null;
         if (!results[2]) return '';
-        return decodeURI(results[2].replace(/\+/g, ' ').replace(/\%3A/g,':').replace(/\%2F/g,'/'));
+        return decodeURI(results[2].replace(/\+/g, ' ').replace(/\%3A/g,':').replace(/\%2F/g,'/').replace(/%3F/g, '?').replace(/%3D/g, '=').replace(/%26/g, '&'));
     } catch (err) {
         log(err);
     }
@@ -25,6 +25,12 @@ var getParameterByName =  function(name, url) {
 var writeResponseHeaders = function (res, existing) {
     try {
         var resHeaders = existing || {};
+        delete resHeaders['Access-Control-Allow-Credentials'];
+        delete resHeaders['access-control-allow-credentials'];
+        delete resHeaders['Access-Control-Allow-Headers'];
+        delete resHeaders['access-control-allow-headers'];
+        delete resHeaders['Access-Control-Allow-Origin'];
+        delete resHeaders['access-control-allow-origin'];
         resHeaders['Access-Control-Allow-Credentials'] = 'true';
         resHeaders['Access-Control-Allow-Headers'] = 'content-type,authorization,session-id,request-id,x-requested-with';
         resHeaders['Access-Control-Allow-Origin'] = '*';
